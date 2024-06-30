@@ -4,12 +4,11 @@ import { MdOutlineFavorite } from "react-icons/md";
 import { Topbar } from "../../components/topbar/Topbar";
 import { Bottombar } from "../../components/bottombar/Bottombar";
 import { useFetch } from "../../hooks/useFetch";
+import url from "../../data/url";
 
 export const Detail = () => {
   const { id } = useParams();
-  const url = `https://api.themoviedb.org/3/movie/${id}`;
-  const movie = useFetch(url);
-  console.log(movie);
+  const movie = useFetch(`${url.default}${id}`);
 
   return (
     <div>
