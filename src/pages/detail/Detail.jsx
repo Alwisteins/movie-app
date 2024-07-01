@@ -8,7 +8,7 @@ import url from "../../data/url";
 
 export const Detail = () => {
   const { id } = useParams();
-  const movie = useFetch(`${url.default}${id}`);
+  const movie = useFetch(url.default + `/${id}`);
 
   return (
     <div>
