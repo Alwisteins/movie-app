@@ -1,6 +1,6 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { FaStar, FaPlay } from "react-icons/fa";
-import { MdOutlineFavorite } from "react-icons/md";
+import { IoMdCamera } from "react-icons/io";
 import { Topbar } from "../../components/topbar/Topbar";
 import { Bottombar } from "../../components/bottombar/Bottombar";
 import { useFetch } from "../../hooks/useFetch";
@@ -8,6 +8,7 @@ import url from "../../data/url";
 
 export const Detail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const movie = useFetch(url.default + `/${id}`);
 
   return (
@@ -49,9 +50,12 @@ export const Detail = () => {
                   <span>Watch Trailer </span>
                   <FaPlay />
                 </button>
-                <button className="flex items-center space-x-2 px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-medium border border-white rounded-full">
-                  <span>Favorite </span>
-                  <MdOutlineFavorite />
+                <button
+                  onClick={() => navigate(`/movies/detail/${id}/capture-moment`)}
+                  className="flex items-center space-x-2 px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-medium border border-white hover:bg-white/30 hover:backdrop-blur-lg rounded-full"
+                >
+                  <span>Capture Experience </span>
+                  <IoMdCamera />
                 </button>
               </div>
             </div>

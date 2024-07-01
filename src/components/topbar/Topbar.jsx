@@ -10,8 +10,8 @@ export const Topbar = () => {
           <Navbar />
         </div>
       </div>
-      <div className="sm:flex sm:items-center sm:gap-8">
-        <form className="hidden -space-x-2 sm:flex items-center">
+      <div className="sm:flex items-center sm:gap-8">
+        <form className="-space-x-2 flex items-center">
           <input
             type="text"
             placeholder="Search here..."
@@ -24,9 +24,7 @@ export const Topbar = () => {
             <IoMdSearch />
           </button>
         </form>
-        <button className="px-4 py-2 text-sm sm:text-base font-medium bg-blue-400 rounded-md">
-          Login
-        </button>
+       
       </div>
     </div>
   );
