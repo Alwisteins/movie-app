@@ -3,13 +3,9 @@ import Webcam from "react-webcam";
 import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { Topbar } from "../../components/topbar/Topbar";
-import { useFetch } from "../../hooks/useFetch";
-import url from "../../data/url";
 
 export const Capture = () => {
   const { id } = useParams();
-  const selectedMovie = useFetch(url.default + `/${id}`);
-  const movieName = selectedMovie ? selectedMovie.original_title : "";
   const [capturedImage, setCapturedImage] = useState(null);
   const [userName, setUserName] = useState("");
   const [location, setLocation] = useState({ lat: "", long: "" });
@@ -46,7 +42,7 @@ export const Capture = () => {
 
     try {
     //   const response = await axios.post("YOUR_LARAVEL_BACKEND_URL", {
-    //     movieName,
+    //     movieId: id,
     //     userName,
     //     photo: capturedImage,
     //     location,
