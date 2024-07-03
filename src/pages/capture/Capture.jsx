@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import Webcam from "react-webcam";
 import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import axios from "axios";
 import { Topbar } from "../../components/topbar/Topbar";
 
 export const Capture = () => {
@@ -41,17 +42,17 @@ export const Capture = () => {
     }
 
     try {
-    //   const response = await axios.post("YOUR_LARAVEL_BACKEND_URL", {
-    //     movieId: id,
-    //     userName,
-    //     photo: capturedImage,
-    //     location,
-    //   });
-    //   console.log(response);
+      await axios.post("http://localhost:8800/api/v1/capture-moment/", {
+        movieId: id,
+        userName,
+        photo: capturedImage,
+        location,
+      });
+
       Swal.fire({
-        title: "Feature Under Development",
-        text: "Your photo is not actually uploaded because the feature is still in the development stage.",
-        icon: "question",
+        title: "Success",
+        text: "Your photo is successfully uploaded.",
+        icon: "success",
       });
     } catch (error) {
       console.error("Error uploading photo", error);
