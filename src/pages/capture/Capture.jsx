@@ -42,12 +42,15 @@ export const Capture = () => {
     }
 
     try {
-      await axios.post("http://localhost:8800/api/v1/capture-moment/", {
-        movieId: id,
-        userName,
-        photo: capturedImage,
-        location,
-      });
+      await axios.post(
+        "https://movie-app-backend-production-e85c.up.railway.app/api/v1/capture-moment/",
+        {
+          movieId: id,
+          userName,
+          photo: capturedImage,
+          location,
+        }
+      );
 
       Swal.fire({
         title: "Success",
