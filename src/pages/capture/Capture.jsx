@@ -5,6 +5,8 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import { Topbar } from "../../components/topbar/Topbar";
 
+const BASE_API_URL = import.meta.env.VITE_BASE_API_URL;
+
 export const Capture = () => {
   const { id } = useParams();
   const [capturedImage, setCapturedImage] = useState(null);
@@ -42,15 +44,12 @@ export const Capture = () => {
     }
 
     try {
-      await axios.post(
-        "https://movie-app-backend-production-e85c.up.railway.app/api/v1/capture-moment/",
-        {
-          movieId: id,
-          userName,
-          photo: capturedImage,
-          location,
-        }
-      );
+      await axios.post(`${BASE_API_URL}/api/v1/capture-moment/`, {
+        movieId: id,
+        userName,
+        photo: capturedImage,
+        location,
+      });
 
       Swal.fire({
         title: "Success",
